@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 export async function POST(request) {
   try {
-    console.log(body)
+    
     const body = await request.json();
     const { email, password } = body;
 
@@ -14,7 +14,7 @@ export async function POST(request) {
       return NextResponse.json({ error: "Missing email or password" }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({
+    const user = await prisma.User.findUnique({
       where: { email },
     });
 

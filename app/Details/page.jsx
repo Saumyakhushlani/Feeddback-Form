@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from 'react';
 
 const Page = () => {
@@ -20,14 +21,16 @@ const Page = () => {
         setError('');
         setResultData(null);
 
+
         try {
-            const res = await fetch('/api/verify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+
+            const res = await fetch("/api/pulse", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
-            
+
             const result = await res.json();
             console.log(result);
             console.log(res);
